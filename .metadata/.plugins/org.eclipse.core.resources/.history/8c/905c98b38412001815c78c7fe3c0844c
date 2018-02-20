@@ -1,0 +1,13 @@
+package com.gulab.backend.DAOImpl;
+
+import com.gulab.backend.DAO.UserDao;
+import com.gulab.backend.models.UserModel;
+
+public class UserDaoImpl implements UserDao {
+
+	public void addDriver(UserModel user) {
+	
+
+	}
+
+}

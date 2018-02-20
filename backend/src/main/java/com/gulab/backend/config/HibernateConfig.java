@@ -1,0 +1,89 @@
+package com.gulab.backend.config;
+
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+
+import com.gulab.backend.DAO.UserDao;
+import com.gulab.backend.DAOImpl.UserDaoImpl;
+import com.gulab.backend.models.UserModel;
+
+
+
+
+
+@Configuration
+@EnableTransactionManagement
+
+public class HibernateConfig {
+	
+	@Autowired
+    @Bean
+    public SessionFactory sessionFactory(DataSource dataSource) {
+        LocalSessionFactoryBuilder sessionBuilder  = new LocalSessionFactoryBuilder(dataSource);
+        /*sessionBuilder.setProperty("hibernate.show_sql", "true");*/
+        
+        sessionBuilder.addProperties(getHibernateProperties());
+       
+        
+       sessionBuilder.addAnnotatedClass(UserModel.class);
+       
+        
+  	    return sessionBuilder.buildSessionFactory();
+    }
+	 @Autowired
+	    @Bean(name = "datasource")
+	    public DataSource dataSource() {
+	        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+	        dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
+	        dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
+
+	        dataSource.setUsername("hr");
+	        dataSource.setPassword("hr");
+	        System.out.println("Data Source Created.....");
+	        return dataSource;
+	       
+	        }
+	
+	private Properties getHibernateProperties() {
+		
+		 Properties properties = new Properties();
+	        properties.put("hibernate.show_sql", "true");
+	        properties.put("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
+	        properties.put("hibernate.format_sql", "true");
+	        properties.put("hibernate.hbm2ddl.auto", "update");
+	        properties.put("hibernate.connection.autocommit", true);
+	        //properties.put("hibernate.temp.use_jdbc_metadata_defaults",false);
+	        return properties;
+	}
+	
+
+
+    @Bean
+	@Autowired
+        public HibernateTransactionManager txManager(SessionFactory sessionFactory) {
+                return new HibernateTransactionManager(sessionFactory);
+        }
+   
+    @Bean
+    @Autowired
+    public UserDao getUserdao(SessionFactory sessionFactory)
+    {
+    	return new UserDaoImpl(sessionFactory);
+    }
+		public HibernateConfig() 
+	{}
+
+}

@@ -1,0 +1,5 @@
+package com.gulab.backend.DAO;
+
+public interface UserDao {
+
+}

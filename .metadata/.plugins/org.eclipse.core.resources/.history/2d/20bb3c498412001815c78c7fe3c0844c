@@ -1,0 +1,46 @@
+package controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.gulab.backend.models.UserModel;
+
+@Controller
+public class AppController {
+	
+	@RequestMapping(value="/")
+	public String open()
+	{
+		return "LandingPage";
+	}
+	@RequestMapping(value="LandingPage")
+	public String landing()
+	{
+		return "LandingPage";
+	}
+	@RequestMapping(value="News")
+	public String news()
+	{
+		return "News";
+	}
+	@RequestMapping(value="ClientPage")
+	public String client()
+	{
+		return "ClientPage";
+	}
+	@RequestMapping(value="AboutUsPage")
+	public String aboutus()
+	{
+		return "AboutUsPage";
+	}
+	@RequestMapping(value="RegistrationPage")
+	public String registration(Model model)
+	{
+		UserModel usermodel= new UserModel();
+		model.addAttribute("user", usermodel);
+		return "RegistrationPage";
+	}
+	
+
+}

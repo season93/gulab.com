@@ -1,0 +1,12 @@
+package com.gulab.backend.models;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="driverdetails")
+public class UserModel {
+	
+	
+
+}

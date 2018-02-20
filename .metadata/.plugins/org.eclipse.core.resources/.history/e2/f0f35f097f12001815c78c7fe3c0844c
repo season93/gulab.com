@@ -1,0 +1,52 @@
+package com.gulab.backend.models;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="driverdetails")
+public class UserModel {
+	
+	@Id
+	@Column
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int driverid;
+	
+	@Column
+	private String username;
+	@Column
+	private String mobile;
+	@Column
+	private String experience;
+	@Column
+	private String currentlydriving;
+	@Column
+	private String bankname;
+	@Column
+	private String account_number;
+	@Column
+	private String
+	@Column
+	private String
+	@Column
+	private String
+	@Column
+	private String
+	@Column
+	private String
+	@Column
+	private String
+	@Column
+	private String
+	@Column
+	private String
+	@Column
+	private String
+	@Column
+	private String
+	
+}

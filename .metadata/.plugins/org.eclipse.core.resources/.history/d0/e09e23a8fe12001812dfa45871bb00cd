@@ -1,0 +1,40 @@
+package com.gulab.backend.DAOImpl;
+
+import javax.transaction.Transactional;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.gulab.backend.DAO.UserDao;
+import com.gulab.backend.models.UserModel;
+
+public class UserDaoImpl implements UserDao {
+	
+	@Autowired
+	SessionFactory sessionFactory;
+
+	 public UserDaoImpl(SessionFactory sessionFactory) {
+		this.sessionFactory=sessionFactory;
+	}
+
+	@Transactional
+	public void addDriver(UserModel user) {
+	        System.out.println("check1");
+           Session session= sessionFactory.openSession();
+           System.out.println("check2");
+           session.saveOrUpdate(user);
+           System.out.println("check3");
+           session.close();
+	}
+
+	public UserModel searchId(int id) {
+		
+		Session session=sessionFactory.openSession();
+	
+		UserModel user=(UserModel)session.load(UserModel.class, id);
+		return user;
+	}
+
+}

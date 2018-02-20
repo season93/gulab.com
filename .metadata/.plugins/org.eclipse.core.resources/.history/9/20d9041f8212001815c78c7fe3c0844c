@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+  <%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>DriverRegistrationForm</title>
+</head>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #2b2929;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: black;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+div{
+  font-size: 105%;
+  text-align: left;
+}
+body {
+    background-image: url("img/black.jpg");
+    height: 100%;
+    backgroung-repeat: no-repeat;
+    background-size: cover;
+}
+input[type=submit] {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 10px 14px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+input[type=reset] {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+
+<body>
+  <ul class="nav navbar-nav">
+    <ul>
+<li><a href="LandingPage.html">GULAB</a></li>
+  <li><a class="active" href="LandingPage.html">HOME</a></li>
+  <li><a href="News.html">NEWS</a></li>
+  <li><a href="ClientPage.html">CLIENT</a></li>
+  <li><a href="AboutUsPage.html">ABOUT US</a></li>
+<li style="float:right"><a href="RegistrationPage.html">DRIVER APPLICATION</a></li>
+
+</ul>
+</ul>
+
+<iframe width="100%" height="475" src="https://www.youtube.com/embed/DynIBl7ECWI?playlist=DynIBl7ECWI&loop=1&autoplay=1&controls=0&rel=0" frameborder="0" allowfullscreen></iframe>
+     <div style="width: 100%;"> 
+      <div style="float:left; width: 50%"> 
+     <left>
+     <form:form action="DriverServlet" modelAttribute="user" method="post" style="border:5px solid white;width:500px;padding:10px 10px 10px 30px;margin-top:50px;border-radius:15px;">
+          <div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+           <h3><font color=#ed6031>REGISTRATION FORM</font></h3>
+        <font color=#c2d6d5> <table>
+	     <tbody>
+	     <tr>
+	     <td><form:label path="drivername">Driver Name:<font color="red">*</font></form:label></td>
+	     <td> <form:input  path="drivername" class="field" placeholder="name"/>
+	     </td>
+	     </tr>
+         <tr>
+         <td><form:label path="mobile">Contact Number:<font color="red">*</font></form:label></td>
+         <td><form:input type="text" name="mobile" placeholder="phone number" class="field"/>
+         </td>
+         </tr>
+          <tr>
+          <td><form:label  path="experience" > Experience:<font color="red">*</font></form:label></td><td> <form:input type="text" path="experience" class="field"/>
+          </td>
+          </tr>
+	      <tr>
+	      <td><form:lable path="currentlydriving">Currently Driving:</form:lable></td>
+	      <td><form:input type="text" path="currentlydriving"  class="field"/></td></tr>
+	      <tr><td><form:label path="bankname">Bank Name:<font color="red">*</font></form:label></td><td><form:input type="text" path="bankname" placeholder="bank name"/></td></tr>
+	      <tr><td><form:label path="account_number">Account Number:<font color="red">*</font></form:label></td><td><form:input type="number" path="account_number" placeholder="account number"/></td></tr>
+	      <tr><td><form:label path="ifsc_code">IFSC code:<font color="red">*</font></form:label></td><td><form:input type="text" path="ifsc_code" placeholder="ifsc code"/></td></tr>
+	      <tr><td><form:label path="address" >Address :</form:label></td><td> <textarea rows="5" cols="30" path="address" class="addressfield"></textarea></td></tr>
+          <tr><td><form:label path="vehicle_number">Vehicle number:<font color="red">*</font></form:label></td><td><form:input type="text" path="vehicle_number" placeholder="vehicle number"/></td></tr>
+          <tr><td><form:label path="vehicle_make">Vehicle make:</form:label></td><td><form:input type="text" path="vehicle_make" placeholder="Vehicle model"/></td></tr>
+          <tr><td><form:label path="license_number" placeholder="license number">License number:<form:font color="red">*</font></form:label></td><td><input type="text" path="license_number" placeholder="license number"></td></tr>
+           <tr><td><form:label path="aadhar_number">Aadhar number:<font color="red">*</font></form:label></td><td><form:input type="text" path="aadhar_number" placeholder="Aadhar number"/></td></tr>
+          <tr><td><form:label path="insurance" v>Insurance details:</form:label></td><td><textarea rows="5" cols="30" path="insurance" class="addressfield"></textarea>
+          </td></tr>
+	      <tr><td><form:label path="preferred_area">Preferred area:</form:label></td><td><form:input type="text" path="preferred_area"  class="field"/></td></tr>
+	       <tr><td><form:label path="email">EmailL:</form:label></td><td><form:input type="email" path="email" placeholder="email address"/></td></tr>
+	       <tr><td><form:label path="city">City:<font color="red">*</font></form:label></td><td><select path="city" class="field">
+	 <option>Select city.........</option>
+	 <option value="Bangaluru">Banglore</option>
+	 <option value="Hyderabad">Hyderabad</option>
+	 <option value="Visakhapatnam">visakhapatnam</option>
+	 <option value="Mumbai">Mumbai</option>
+	 <option value="Pune">Pune</option>
+     </select></td></tr>
+      <tr><td><form:label path="enrolled_date">Date:</form:label></td><td><form:input type="date" path="enrolled_date"  placeholder="today date"class="field"/></td></tr>
+      
+	 <tr><td colspan="2" align="center"><input type="checkbox" name="agree"><a href="AcceptTerms.html" class="link">Accept the Terms And Conditions</a></td></tr>
+	<tr><td></td><td><input type="submit" value="Sign Up" class="button">
+	<input type="reset" value="Reset" class="button"></td></tr></tbody></table></font>
+     </form:form>
+     </left>		
+     </div>
+      <div style="float:right; margin-top:70px; width:50%;">
+         <img src="img/cars.jpg" align="right" height="100%"> 
+       </div>
+       </div>
+</body>
+</html>
